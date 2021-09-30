@@ -12,9 +12,6 @@ import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './main/header/header.component';
 import { ContentComponent } from './main/content/content.component';
 import { FooterComponent } from './main/footer/footer.component';
-
-
-
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
@@ -23,6 +20,12 @@ import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'primeng/api';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ToastrModule } from 'ngx-toastr';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,12 @@ import {RippleModule} from 'primeng/ripple';
     MainComponent,
     HeaderComponent,
     ContentComponent,
-    FooterComponent
+    FooterComponent,
+    AddRecipeComponent,
+    DetailComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -48,7 +54,13 @@ import {RippleModule} from 'primeng/ripple';
     ButtonModule,
     RippleModule,
     RatingModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BsDropdownModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

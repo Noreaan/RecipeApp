@@ -6,26 +6,23 @@
             <div class="card-title">
                 Enter the land of food
             </div>
-            <form [formGroup]="loginForm">
+            <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
                 <div class="form-row">
                     <div class="form-group">
                         <label class="label" for="name">Username</label>
-                        <input type="text" class="form-control" placeholder="Username" formControlName="userName">
+                        <input type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username" required="">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label class="label" for="password">Password</label>
-                        <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password" required="">
                     </div>
                 </div>
                 <div class="form-row">
-                    <button routerLink="/home" type="submit" class="form-control btn btn-primary rounded submit px-3">
+                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">
                         Sign In
                     </button>
-                </div>
-                <div class="form-row">
-                    <a routerLink="/reset-password">Forgot Password</a>
                 </div>
             </form>
             <p class="text-center">Not a member? <a data-toggle="tab" routerLink="/register">Sign Up</a></p>

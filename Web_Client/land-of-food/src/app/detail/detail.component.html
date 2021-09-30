@@ -1,0 +1,59 @@
+<div class="hero-image mb-3">
+    <div class="hero-text">
+        <h1 *ngIf="(recipe$ | async) as recipe">{{ recipe.name }}</h1>
+    </div>
+</div>
+<div class="container" *ngIf="(recipe$ | async) as recipe">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <label class="fs-4">Info</label>
+                    </div>
+                    <hr />
+                    <div class="row d-flex justify-content-center">
+                        <div>
+                            Hier komt meer info over het recept
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <label class="fs-4">Ingredients</label>
+                    </div>
+                    <hr />
+                    <ng-container *ngFor="let item of recipe.ingredients; let i = index;">
+                        <div class="row">
+                            <div>
+                                {{ item.amount }} ml {{ item.name }}
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <label class="fs-4">Instructions</label>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div>
+                            {{ recipe.instructions }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
